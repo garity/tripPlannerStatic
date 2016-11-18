@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const volleyball = require('volleyball');
 const nunjucks = require('nunjucks');
 const models = require('./models');
+const path = require('path');
 const app = express(); 
 
 app.set('view engine', 'html');
@@ -16,7 +17,8 @@ app.use(volleyball);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static( path.join(__dirname, 'bower_components')));
+app.use(express.static( path.join(__dirname, 'public')));
 
 app.use('/', require('./routes'));
 
