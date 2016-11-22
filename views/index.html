@@ -3,34 +3,38 @@
 {% block title %}Your Trip{% endblock %}
 
 {% block content %}
-<div id="app" class="clearfix">
-	<div id="options" class=".col-lg-4 .col-md-6 .col-sm-12">
-		<label for="hotels">Hotels</label>
-	   	<select value="hotels" name="hotels">
-	   		{% for hotel in hotels%} 
-	   		<option value= {{hotel.name}}>{{hotel.name}}</option>
-	   		{% endfor %}
-	   </select>
-	   <label for="activities">Activities</label>
-	   <select value="activities", name="activities">
-	   		{% for activity in activities%} 
-	   		<option value= {{activity.name}}>{{activity.name}}</option>
-	   		{% endfor %}
-	   </select>
-	   <label for="restaurant">Restaurant</label>
-	   <select value="restaurant" name="restaurant">
-	   		{% for restaurant in restaurants%} 
-	   		<option value= {{restaurant.name}}>{{restaurant.name}}</option>
-	   		{% endfor %}
-	   </select>
-	</div>
-
-	<div id="itinerary" class=".col-lg-4 .col-md-6 .col-sm-12">
-
-	</div>
-
-	<div id="map" class=".col-lg-8 .col-md-6 .col-sm-12">
-	</div>
-   
+<div id="app" class="container-fluid">
+	<div class="row full-height no-gutter">
+		<div id="map" class="col-md-8 col-sm-6 col-xs-12">
+			<div id="map-canvas">
+			</div>
+		</div>
+		<div class="sidebar col-md-4 col-sm-6 col-xs-12">
+			<div id="options" class="trip-panel">
+				<label for="hotels">Hotels</label>
+			   	<select value="hotels" name="hotels" class="form-control">
+			   		{% for hotel in hotels%} 
+			   		<option value= {{hotel.name}}>{{hotel.name}}</option>
+			   		{% endfor %}
+			   </select>
+			   <label for="activities">Activities</label>
+			   <select value="activities", name="activities" class="form-control">
+			   		{% for activity in activities%} 
+			   		<option value= {{activity.name}}>{{activity.name}}</option>
+			   		{% endfor %}
+			   </select>
+			   <label for="restaurant">Restaurant</label>
+			   <select value="restaurant" name="restaurant" class="form-control">
+			   		{% for restaurant in restaurants%} 
+			   		<option value= {{restaurant.name}}>{{restaurant.name}}</option>
+			   		{% endfor %}
+			   </select>
+			</div>
+			<div id="itinerary" class="trip-panel">
+				<h1>Put your itinerary here</h1>
+			</div>
+		</div>
+	</div>  
 </div>
 {% endblock %}
+
